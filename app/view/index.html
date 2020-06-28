@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      position: relative;
+      border: 1px solid #d7dde4;
+      border-bottom: 0;
+      width: 750px;
+      margin: 0 auto;
+    }
+    table td,
+    table th{
+      min-width: 0;
+      height: 48px;
+      box-sizing: border-box;
+      text-align: left;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      border-bottom: 1px solid #e3e8ee;
+      background-color: #ffffff;
+      padding: 8px;
+    }
+    table th{
+      height: 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      background-color: #f5f7f9;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>description</th>
+        <th>title</th>
+        <th>keywords</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in tableData %}
+      <tr>
+        <th>{{item.id}}</th>
+        <th>{{item.name}}</th>
+        <th>{{item.description}}</th>
+        <th>{{item.title}}</th>
+        <th>
+          {% for word in item.keywords %}
+          <span>{{word}}</span>
+          {% endfor %}
+        </th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
